@@ -30,7 +30,7 @@ app.get('/hotels/sort/pricing', (req, res) => {
   let sortedResponse = hotelsCopy.sort((a, b) =>
     sortHotelsOnParam(a, b, 'price', pricing)
   );
-  res.json(sortedResponse);
+  res.json({ hotels: sortedResponse});
 });
 
 app.get('/hotels/sort/rating', (req, res) => {
@@ -39,7 +39,7 @@ app.get('/hotels/sort/rating', (req, res) => {
   let sortedResponse = hotelsCopy.sort((a, b) =>
     sortHotelsOnParam(a, b, 'rating', rating)
   );
-  res.json(sortedResponse);
+  res.json({ hotels: sortedResponse});
 });
 
 app.get('/hotels/sort/reviews', (req, res) => {
@@ -48,7 +48,7 @@ app.get('/hotels/sort/reviews', (req, res) => {
   let sortedResponse = hotelsCopy.sort((a, b) =>
     sortHotelsOnParam(a, b, 'reviews', reviews)
   );
-  res.json(sortedResponse);
+  res.json({ hotels: sortedResponse});
 });
 
 app.get('/hotels/filter/amenity', (req, res) => {
@@ -56,7 +56,7 @@ app.get('/hotels/filter/amenity', (req, res) => {
   let filteredResponse = hotels.filter((hotel) =>
     filterHotelsOnParam(hotel, 'amenity', amenity)
   );
-  res.json(filteredResponse);
+  res.json({ hotels: filteredResponse});
 });
 
 app.get('/hotels/filter/country', (req, res) => {
@@ -64,7 +64,7 @@ app.get('/hotels/filter/country', (req, res) => {
   let filteredResponse = hotels.filter((hotel) =>
     filterHotelsOnParam(hotel, 'country', country)
   );
-  res.json(filteredResponse);
+  res.json({ hotels: filteredResponse});
 });
 
 app.get('/hotels/filter/category', (req, res) => {
@@ -72,11 +72,11 @@ app.get('/hotels/filter/category', (req, res) => {
   let filteredResponse = hotels.filter((hotel) =>
     filterHotelsOnParam(hotel, 'category', category)
   );
-  res.json(filteredResponse);
+  res.json({ hotels: filteredResponse});
 });
 
 app.get('/hotels', (req, res) => {
-  res.json(hotels);
+  res.json({ hotels: hotels });
 });
 
 app.listen(port, () => {
